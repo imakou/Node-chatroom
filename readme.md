@@ -1,6 +1,6 @@
 ### Node Chatroom
 ----
-This project is a practice for [socket.io](https://socket.io) base on NodeJS.
+This project is a practice for [Socket.io](https://socket.io) base on [NodeJS](https://nodejs.org/en/).
 
 - A realtime chatroom
 - Supports separate room

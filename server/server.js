@@ -24,6 +24,7 @@ io.on('connection', (socket) => {
     }
 
     socket.join(params.room);
+    console.log(`${params.name} joins room - ${params.room}`);
     users.removeUser(socket.id);
     users.addUser(socket.id, params.name, params.room);
 
@@ -38,6 +39,7 @@ io.on('connection', (socket) => {
 
     if (user && isRealString(message.text)) {
       io.to(user.room).emit('newMessage', generateMessage(user.name, message.text));
+      console.log(`${user.name}: ${message.text}`);
     }
     callback();
   });

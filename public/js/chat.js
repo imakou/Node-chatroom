@@ -30,7 +30,7 @@ socket.on('connect', function () {
 });
 
 socket.on('disconnect', function () {
-  console.log('Disconnected from server');
+  console.log('Disconnected');
 });
 
 socket.on('updateUserList', function (users) {
@@ -71,6 +71,7 @@ socket.on('newLocationMessage', function (message) {
 
 jQuery('#message-form').on('submit', function (e) {
   e.preventDefault();
+  var params = jQuery.deparam(window.location.search);
 
   var messageTextbox = jQuery('[name=message]');
 
@@ -79,6 +80,18 @@ jQuery('#message-form').on('submit', function (e) {
   }, function () {
     messageTextbox.val('')
   });
+
+});
+
+// Ruei-Pu adds User Typing function
+
+jQuery('[name=message]').on('keypress', function (e) {
+  var params = jQuery.deparam(window.location.search);
+  socket.emit('UserTyping', params, true);
+  // console.log('5555');
+  if(e.which == 13){ // 13 = Enter
+    socket.emit('UserTyping', params, false);
+  }
 });
 
 var locationButton = jQuery('#send-location');
@@ -99,4 +112,28 @@ locationButton.on('click', function () {
     locationButton.removeAttr('disabled').text('Send location');
     alert('Unable to fetch location.');
   });
+});
+
+socket.on('UserIsTyping', function (message) {
+  var template = jQuery('#message-template__typing').html();
+  var html = Mustache.render(template, {
+    text: "is typing...",
+    from: message.from
+  });
+
+  if(message.isTyping){
+    jQuery('.typing__list').html(html);
+  }else{
+    jQuery('.typing__list').html('');
+  }
+
+  scrollToBottom();
+});
+
+// Ruei-Pu adds that the same message prevent function
+socket.on('sameMessage', function () {
+  var template = jQuery('#message-template__same_msg').html();
+  var html = Mustache.render(template);
+  jQuery('#messages').append(html);
+  scrollToBottom();
 });

@@ -19,9 +19,12 @@
   <div class="chat__main">
     <ol id="messages" class="chat__messages"></ol>
 
+    <div id="typing__block" class="chat__footer">
+      <div class="typing__list"></div>
+    </div>
     <div class="chat__footer">
       <form id="message-form">
-        <input name="message" type="text" placeholder="Message" autofocus autocomplete="off"/>
+        <input name="message" type="text" placeholder="Message" autofocus autocomplete="off" />
         <button>Send</button>
       </form>
       <button id="send-location">Send location</button>
@@ -53,12 +56,24 @@
       </div>
     </li>
   </script>
+  <script id="message-template__typing" type="text/template">
+    <div class="message__title">
+      <h4>{{from}}</h4>
+      <p>{{text}}</p>
+    </div>
+  </script>
+
+  <script id="message-template__same_msg" type="text/template">
+    <div class="message__title">
+      <p><i>Please don't sent the same message!</i></p>
+    </div>
+  </script>
 
   <script src="/socket.io/socket.io.js"></script>
   <script src="/js/libs/jquery-3.1.0.min.js"></script>
   <script src="/js/libs/moment.js"></script>
-  <script src="/js/libs/mustache.js"></script>
   <script src="/js/libs/deparam.js"></script>
+  <script src="/js/libs/mustache.js"></script>
   <script src="/js/chat.js"></script>
 </body>
 

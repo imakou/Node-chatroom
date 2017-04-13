@@ -38,18 +38,18 @@ h3 {
 }
 
 button {
-    background: #265f82;
+    background: #8c8c8c;
     cursor: pointer;
     transition: background .3s ease
 }
 
 button:hover {
-    background: #1F4C69
+    background: #8c8c8c
 }
 
 button:disabled {
     cursor: default;
-    background: #698ea5
+    background: #8c8c8c
 }
 
 .centered-form {
@@ -58,12 +58,7 @@ button:disabled {
     height: 100vh;
     width: 100vw;
     justify-content: center;
-    background: -moz-linear-gradient(125deg, rgba(39, 107, 130, 1) 0, rgba(49, 84, 129, 1) 100%);
-    background: -webkit-gradient(linear, left top, right bottom, color-stop(0, rgba(49, 84, 129, 1)), color-stop(100%, rgba(39, 107, 130, 1)));
-    background: -webkit-linear-gradient(125deg, rgba(39, 107, 130, 1) 0, rgba(49, 84, 129, 1) 100%);
-    background: -o-linear-gradient(125deg, rgba(39, 107, 130, 1) 0, rgba(49, 84, 129, 1) 100%);
-    background: -ms-linear-gradient(125deg, rgba(39, 107, 130, 1) 0, rgba(49, 84, 129, 1) 100%);
-    background: linear-gradient(325deg, rgba(39, 107, 130, 1) 0, rgba(49, 84, 129, 1) 100%)
+    background: linear-gradient(135deg, rgb(179, 177, 178) 0, rgb(251, 251, 251) 100%);
 }
 
 .centered-form__form {

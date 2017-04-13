@@ -1,5 +1,10 @@
 var socket = io();
 
+
+// this funcion follows 
+// The original tutorial 
+// "The Complete Node.js Developer Course" by Andrew Mead and Rob Percival.
+
 function scrollToBottom () {
   var messages = jQuery('#messages');
   var newMessage = messages.children('li:last-child')
@@ -14,6 +19,9 @@ function scrollToBottom () {
   }
 }
 
+// this funcion follows 
+// The original tutorial 
+// "The Complete Node.js Developer Course" by Andrew Mead and Rob Percival.
 socket.on('connect', function () {
   var params = jQuery.deparam(window.location.search);
 
@@ -27,19 +35,9 @@ socket.on('connect', function () {
   });
 });
 
-socket.on('disconnect', function () {
-  console.log('Disconnected');
-});
-
-socket.on('updateUserList', function (users) {
-  var ol = jQuery('<ol></ol>');
-
-  users.forEach(function (user) {
-    ol.append(jQuery('<li></li>').text(user));
-  });
-
-  jQuery('#users').html(ol);
-});
+// this funcion follows 
+// The original tutorial 
+// "The Complete Node.js Developer Course" by Andrew Mead and Rob Percival.
 
 socket.on('newMessage', function (message) {
   var formattedTime = moment(message.createdAt).format('h:mm a');
@@ -54,6 +52,9 @@ socket.on('newMessage', function (message) {
   scrollToBottom();
 });
 
+// this funcion follows 
+// The original tutorial 
+// "The Complete Node.js Developer Course" by Andrew Mead and Rob Percival.
 
 jQuery('#message-form').on('submit', function (e) {
   e.preventDefault();
@@ -79,7 +80,7 @@ jQuery('[name=message]').on('keypress', function (e) {
   }
 });
 
-
+// Ruei-Pu adds User Typing function
 socket.on('UserIsTyping', function (message) {
   var template = jQuery('#message-template__typing').html();
   var html = Mustache.render(template, {

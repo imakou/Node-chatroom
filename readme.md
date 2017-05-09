@@ -1,4 +1,4 @@
-### Node Chatroom
+### Node Chatrooms
 ----
 This project is a practice for [Socket.io](https://socket.io) base on [NodeJS](https://nodejs.org/en/).
 

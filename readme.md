@@ -28,4 +28,4 @@ Base on above tutorials, I create two functions which are not in the tutorials.
 
 The app was deployed to Heroku.
 
-Demo: [https://tranquil-thicket-77425.herokuapp.com/](https://tranquil-thicket-77425.herokuapp.com)
+Demo: [https://calm-tundra-99442.herokuapp.com](https://calm-tundra-99442.herokuapp.com)
